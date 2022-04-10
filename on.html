@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+
+            background-color: skyblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 1000;
+        }
+
+        #form-container {
+
+            background-color: white;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .error {
+
+            background-color: red;
+            margin: 0px;
+            text-align: center;
+        }
+
+        input {
+            width: 200;
+            margin: 10px, 0px;
+            padding: 10px;
+        }
+    </style>
+</style>
+</head>
+<body>
+    <div id="form-container">
+        <form action=""onsubmit= "return validateForm()">
+            <div>
+            <h1>Login</h1>
+            <label>name</label>
+            <input type="text" class = "ame" placeholder="username" id="name"><br><br>
+            <p1 id="userError" class="error"></p1>
+            <label>pass</label>
+            <input type="password" class = "ame"placeholder="password" id="pass"><br><br>
+            <p1 id="passError" class="error"></p1>
+            <input type="submit">
+        </div>
+
+        </form>
+    </div>
+    <script>
+          let username = document.getElementById("name");
+    let password = document.getElementById("pass");
+
+let flag = 1;
+
+    function validateForm(){
+        if(username.value == ""){
+            document.getElementById("userError").innerHTML = "username is blank";
+            flag = 0;
+        }else if( username.value.length <= 3){
+            document.getElementById("userError").innerHTML = "fill more then 3 character";
+            flag = 0;
+
+        }else{
+            document.getElementById("userError").innerHTML = ""; 
+            flag = 1;
+        }
+        
+    
+
+    if(password.value == ""){
+        document.getElementById("passError").innerHTML = "password is blank";
+        flag = 0;
+
+    }else if( password.value.length <= 6){
+            document.getElementById("passError").innerHTML = "fill strong password";
+            flag = 0;
+        
+    }else{
+        document.getElementById("passError").innerHTML = "";
+        flag = 1;
+
+    }
+    if(flag){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
+
+    </script>
+</body>
+</html>
